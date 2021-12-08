@@ -1,6 +1,7 @@
 import { useRouter } from "next/router"
 import {useProjects} from "../../data"
 import PreContract from "../../components/Tenders/PreContract"
+import {tableToCSV} from "../../components/Tenders/exportToCSV.helper.js"
 
 function Project() {
   const router = useRouter()
@@ -17,13 +18,16 @@ function Project() {
           >
             BACK
           </button>
-          <h1 className="text-2xl">{projects[id].name.toUpperCase()}</h1>
+          <h1 className="text-2xl">{projects[id]?.name.toUpperCase()}</h1>
           <h1>{projects[id].code}</h1>
-          <h1 className="text-sm">Created at: {projects[id].dateCreated}</h1>
+          <h1 className="text-sm">Created at: {projects[id]?.dateCreated}</h1>
           <img 
               src={projects[id].url} 
               className="col-start-10 lg:col-start-12 col-span-3 lg:col-span-1 row-span-3 bg-purple-800 border h-12 w-12 border-red-500 rounded-full"
             />
+          <button className="hover:cursor-pointer hover:bg-blue-700 hover:border-blue-700 hover:text-white text-sm p-2 border-2 border-blue-900 rounded-lg" type="button" onClick={() => tableToCSV(projects[id]?.name)}>
+            Download CSV
+          </button>
         </div>
       </div>
 
@@ -31,9 +35,9 @@ function Project() {
 
           
         <div className="my-4 flex justify-center">
-
           <PreContract />
         </div>
+
 
     </>
   )

@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  th{
+      @apply
+      text-white
+      bg-blue-900
+      border
+      border-gray-200
+      ;
+  }
+}
+
+@layer base {
+  td{
+      @apply
+      border
+      border-gray-200
+      ;
+  }
+}
+
+@layer base {
+  tr{
+      @apply
+      hover:bg-blue-700
+      hover:text-white
+      ;
+  }
+}

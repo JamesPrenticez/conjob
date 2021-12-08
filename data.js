@@ -40,6 +40,7 @@ export const defaultPreContract = [
     estimateValue: 64300.54,
     contractValue: 64300.54,
     subContractor:"In House",
+    subAcceptance:"-",
     secondayItems: [
       // Project Team
       {
@@ -74,6 +75,7 @@ export const defaultPreContract = [
     estimateValue: 30956.04,
     contractValue: 28500.00,
     subContractor:"RJ Civil",
+    subAcceptance:"Yes",
     secondayItems: [
       {id: "0", code: "0200", name:"Item 0"},
       {id: "1", code: "0210", name:"Item 1"},
@@ -90,6 +92,7 @@ export const defaultPreContract = [
     estimateValue: 25244.44,
     contractValue: 24100.00,
     subContractor:"Southern Foundations",
+    subAcceptance:"Yes",
     secondayItems: [
       {id: "0", code: "0200", name:"Item 0"},
       {id: "1", code: "0210", name:"Item 1"},
