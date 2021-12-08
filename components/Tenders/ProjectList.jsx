@@ -1,25 +1,9 @@
-const projects = [
-  {
-    id: "001",
-    name: "Project 1",
-    img: "/project1.png",
-    dateCreated: "10/10/2021"
-  },
-  {
-    id: "002",
-    name: "Project 2",
-    img: "/project2.png",
-    dateCreated: "05/07/2019"
-  },
-  {
-    id: "003",
-    name: "Project 3",
-    img: "/project1.png",
-    dateCreated: "17/07/1993"
-  },
-]
+import {useProjects} from "../../data"
+import {useRouter} from "next/router"
 
 function ProjectList() {
+  const router = useRouter()
+  const projects = useProjects
   return (
   <div className="w-full flex justify-center h-screenNav">
 
@@ -31,14 +15,19 @@ function ProjectList() {
 
         {projects.map((project, index) => (
           //Project Card
-          <div className="grid grid-cols-12 grid-rows-3 cursor-pointer hover:bg-blue-700 hover:text-white">
+          <div
+          key={index}
+          onClick={() => router.push(`/project/${project.id}`)} 
+            className="grid grid-cols-12 grid-rows-3 cursor-pointer hover:bg-blue-700 hover:text-white">
             <p className="col-start-1 col-span-1 row-start-2 pl-4">{project.id}</p>
             <p className="col-start-2 col-span-5 row-start-2 font-semibold pl-4">{project.name}</p>
             <p className="col-start-7 lg:col-start-11 col-span-1 row-start-2 text-xs font-gray-500 flex items-center">{project.dateCreated}</p>
-            <img 
-              src={project.img} 
-              className="col-start-10 lg:col-start-12 col-span-3 lg:col-span-1 row-span-3 bg-gray-200 border border-red-500"
-            />
+            <div className="col-start-10 lg:col-start-12 col-span-3 lg:col-span-1 row-span-3 flex items-center justify-center">
+              <img 
+                src={project.url} 
+                className=" bg-purple-800 border h-12 w-12 border-red-500 rounded-full"
+              />
+            </div>
           </div>
         ))}
       </div>

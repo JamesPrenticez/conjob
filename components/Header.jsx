@@ -24,7 +24,7 @@ function Header() {
             <p
               key={index}
               onClick={() => router.push(item.href)}
-              className="hidden lg:inline-flex font-bold hover:text-blue-900 hover:cursor-pointer"
+              className="hidden md:inline-flex font-bold hover:text-blue-900 hover:cursor-pointer"
             >
               {item.name}
             </p>
