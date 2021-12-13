@@ -4,9 +4,9 @@ function PreContract() {
   //console.log(defaultPreContract)
   return (
     <>
-    <div className="w-full flex justify-center items-center ">
+    <div className="w-full flex justify-center items-center">
         <table 
-          className="w-5/6 bg-white rounded-sm "
+          className="w-5/6 bg-white border-2 border-blue-900 rounded-md"
           cellSpacing="0"
           cellPadding="10"
         >
@@ -14,9 +14,9 @@ function PreContract() {
             <tr className="text-left">
                 <th>Code</th>
                 <th>Trade Name</th>
-                <th>Estimate Value</th>
-                <th>Contract Value</th>
-                <th>Difference</th>
+                <th className="text-right">Estimate Value</th>
+                <th className="text-right">Contract Value</th>
+                <th className="text-right">Difference</th>
                 <th>Sub Contractor</th>
                 <th>Status</th>
                 <th>Sub Acceptance</th>
@@ -27,9 +27,10 @@ function PreContract() {
               <tr key={index}>
                   <td>{item.code}</td>
                   <td>{item.name.toUpperCase()}</td>
-                  <td>{(item.estimateValue).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</td>
-                  <td>{(item.contractValue).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</td>
-                  <td>{(item.estimateValue - item.contractValue).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</td>
+                  {/* (item.estimateValue).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')} */}
+                  <td className="text-right">{item.estimateValue}</td>
+                  <td className="text-right">{item.contractValue}</td>
+                  <td className="text-right" className="text-right">{(item.estimateValue - item.contractValue).toFixed(2)}</td>
                   <td>{item.subContractor}</td>
                   <td>{item.status}</td>
                   <td>{item.subAcceptance}</td>
