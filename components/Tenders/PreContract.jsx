@@ -1,7 +1,5 @@
-import {defaultPreContract} from "../../data"
-
-function PreContract() {
-  //console.log(defaultPreContract)
+function PreContract({data}) {
+  //console.log(data)
   return (
     <>
     <div className="w-full flex justify-center items-center">
@@ -23,7 +21,7 @@ function PreContract() {
                 <th>Sub Quote</th>
             </tr>
 
-            {defaultPreContract.map((item, index) => (
+            {data.map((item, index) => (
               <tr key={index}>
                   <td>{item.code}</td>
                   <td>{item.name.toUpperCase()}</td>
