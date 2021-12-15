@@ -1,12 +1,5 @@
 export const useProjects = [
   {
-    id: "0",
-    code: "JOB000",
-    name: "Project 0",
-    url: "/project1.png",
-    dateCreated: "10/10/2021"
-  },
-  {
     id: "1",
     code: "JOB001",
     name: "Project 1",
@@ -17,7 +10,14 @@ export const useProjects = [
     id: "2",
     code: "JOB002",
     name: "Project 2",
-    url: "/project1.png",
+    url: "/project2.png",
+    dateCreated: "17/07/1993"
+  },
+  {
+    id: "3",
+    code: "JOB003",
+    name: "Project 3",
+    url: "/project3.png",
     dateCreated: "17/07/1993"
   },
 ]

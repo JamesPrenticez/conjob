@@ -1,0 +1,49 @@
+// schema.prisma
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id            Int       @default(autoincrement()) @id
+  name          String?
+  email         String?   @unique
+  createdAt     DateTime  @default(now()) @map(name: "created_at")
+  updatedAt     DateTime  @updatedAt @map(name: "updated_at")
+  @@map(name: "users")
+}
+
+model Project {
+  id            Int       @default(autoincrement()) @id
+  name          String
+  code          String
+  plans         String
+  specification String
+
+}
+
+model CostCode {
+  id            Int       @default(autoincrement()) @id
+  code          Int
+  name          String
+}
+
+model TradeName {
+  id            Int       @default(autoincrement()) @id
+  code          Int
+  name          String
+}
+
+model SubContractor {
+  id            Int       @default(autoincrement()) @id
+  code          Int
+  name          String
+  estimateValue Int
+  contractValue Int
+  subAcceptance String
+  subQuote      String
+}

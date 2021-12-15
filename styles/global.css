@@ -17,7 +17,7 @@
   td{
       @apply
       border
-      border-gray-200
+      border-gray-300
       ;
   }
 }
@@ -25,8 +25,7 @@
 @layer base {
   tr{
       @apply
-      hover:bg-blue-700
-      hover:text-white
+      hover:bg-gray-200
       ;
   }
 }
