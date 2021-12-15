@@ -23,19 +23,24 @@ model Project {
   code          String
   plans         String
   specification String
-
+  trades        Trade[]
 }
 
-model CostCode {
-  id            Int       @default(autoincrement()) @id
-  code          Int
-  name          String
-}
-
-model TradeName {
+model Trade {
   id            Int       @default(autoincrement()) @id
   code          Int       @unique
   name          String
+  project       Project    @relation(fields: [projectId], references: [id])
+  projectId     Int        
+}
+
+model Parameters {
+  id            Int       @default(autoincrement()) @id
+  estimateValue Int
+  contractValue Int
+  subName       String
+  subAcceptance Boolean
+  subQuote      String
 }
 
 model SubContractor {

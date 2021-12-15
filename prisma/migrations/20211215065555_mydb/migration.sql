@@ -17,17 +17,22 @@ CREATE TABLE "Project" (
 );
 
 -- CreateTable
-CREATE TABLE "CostCode" (
+CREATE TABLE "Trade" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "code" INTEGER NOT NULL,
-    "name" TEXT NOT NULL
+    "name" TEXT NOT NULL,
+    "projectId" INTEGER NOT NULL,
+    CONSTRAINT "Trade_projectId_fkey" FOREIGN KEY ("projectId") REFERENCES "Project" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 -- CreateTable
-CREATE TABLE "TradeName" (
+CREATE TABLE "Parameters" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "code" INTEGER NOT NULL,
-    "name" TEXT NOT NULL
+    "estimateValue" INTEGER NOT NULL,
+    "contractValue" INTEGER NOT NULL,
+    "subName" TEXT NOT NULL,
+    "subAcceptance" BOOLEAN NOT NULL,
+    "subQuote" TEXT NOT NULL
 );
 
 -- CreateTable
@@ -45,4 +50,4 @@ CREATE TABLE "SubContractor" (
 CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "TradeName_code_key" ON "TradeName"("code");
+CREATE UNIQUE INDEX "Trade_code_key" ON "Trade"("code");

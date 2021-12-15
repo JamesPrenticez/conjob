@@ -3,264 +3,294 @@ const prisma = new PrismaClient()
 
 async function main() {
 
-  const pg = await prisma.tradeName.upsert({
-    where: { code: 0000 },
+  const pg = await prisma.trade.upsert({
+    where: { code: 64 },
     update: {},
     create: {
-      code: 0000,
+      id: 1,
+      code: 64,
       name: 'Preliminary and General',
-    },
+      projectId: 2,
+    }
   })
 
-  const demolition = await prisma.tradeName.upsert({
-    where: { code: 0100 },
+  const demolition = await prisma.trade.upsert({
+    where: { code: 128 },
     update: {},
     create: {
-      code: 0100,
+      code: 128,
       name: 'Demolition',
+      projectId: 2,
     },
   })
 
-  const excavation = await prisma.tradeName.upsert({
-    where: { code: 0200 },
+  const excavation = await prisma.trade.upsert({
+    where: { code: 192 },
     update: {},
     create: {
-      code: 0200,
+      code: 192,
       name: 'Excavation',
+      projectId: 2,
     },
   })
 
-  const reinforcing = await prisma.tradeName.upsert({
-    where: { code: 0300 },
+  const reinforcing = await prisma.trade.upsert({
+    where: { code: 256 },
     update: {},
     create: {
-      code: 0300,
+      code: 256,
       name: 'Reinforcing',
+      projectId: 2,
     },
   })
 
-  const masonry = await prisma.tradeName.upsert({
-    where: { code: 0400 },
+  const masonry = await prisma.trade.upsert({
+    where: { code: 320 },
     update: {},
     create: {
-      code: 0400,
+      code: 320,
       name: 'Masonry',
+      projectId: 2,
     },
   })
 
-  const concrete = await prisma.tradeName.upsert({
-    where: { code: 0500 },
+  const concrete = await prisma.trade.upsert({
+    where: { code: 384 },
     update: {},
     create: {
-      code: 0500,
+      code: 384,
       name: 'Concrete',
+      projectId: 2,
     },
   })
 
-  const structural_steel = await prisma.tradeName.upsert({
-    where: { code: 0600 },
+  const structural_steel = await prisma.trade.upsert({
+    where: { code: 448 },
     update: {},
     create: {
-      code: 0600,
-      name: 'Concrete',
+      code: 448,
+      name: 'Structural Steel',
+      projectId: 2,
     },
   })
 
-  const carpentry = await prisma.tradeName.upsert({
+  const carpentry = await prisma.trade.upsert({
     where: { code: 0700 },
     update: {},
     create: {
       code: 0700,
       name: 'Carpentry',
+      projectId: 2,
     },
   })
 
-  const cladding = await prisma.tradeName.upsert({
+  const cladding = await prisma.trade.upsert({
     where: { code: 0800 },
     update: {},
     create: {
       code: 0800,
       name: 'Aluminium Joinery',
+      projectId: 2,
     },
   })
 
-  const prenail_frames = await prisma.tradeName.upsert({
+  const prenail_frames = await prisma.trade.upsert({
     where: { code: 0900 },
     update: {},
     create: {
       code: 0900,
       name: 'Prenail Frames & Trusses',
+      projectId: 2,
     },
   })
 
-  const interior_doors = await prisma.tradeName.upsert({
+  const interior_doors = await prisma.trade.upsert({
     where: { code: 1000 },
     update: {},
     create: {
       code: 1000,
       name: 'Aluminium Joinery',
+      projectId: 2,
     },
   })
 
-  const hardware = await prisma.tradeName.upsert({
+  const hardware = await prisma.trade.upsert({
     where: { code: 1100 },
     update: {},
     create: {
       code: 1100,
       name: 'Hardware',
+      projectId: 2,
     },
   })
 
-  const aluminium_joinery = await prisma.tradeName.upsert({
+  const aluminium_joinery = await prisma.trade.upsert({
     where: { code: 1200 },
     update: {},
     create: {
       code: 1200,
       name: 'Aluminium Joinery',
+      projectId: 2,
     },
   })
 
-  const garage_door = await prisma.tradeName.upsert({
+  const garage_door = await prisma.trade.upsert({
     where: { code: 1300 },
     update: {},
     create: {
       code: 1300,
       name: 'Garage Door',
+      projectId: 2,
     },
   })
 
-  const roof = await prisma.tradeName.upsert({
+  const roof = await prisma.trade.upsert({
     where: { code: 1400 },
     update: {},
     create: {
       code: 1400,
       name: 'Roof',
+      projectId: 2,
     },
   })
 
-  const spouting_downpipes = await prisma.tradeName.upsert({
+  const spouting_downpipes = await prisma.trade.upsert({
     where: { code: 1500 },
     update: {},
     create: {
       code: 1500,
       name: 'Spouting & Downpipes',
+      projectId: 2,
     },
   })
 
-  const plumbing_drainage = await prisma.tradeName.upsert({
+  const plumbing_drainage = await prisma.trade.upsert({
     where: { code: 1600 },
     update: {},
     create: {
       code: 1600,
       name: 'Plumbing & Drainage',
+      projectId: 2,
     },
   })
 
-  const electrical = await prisma.tradeName.upsert({
+  const electrical = await prisma.trade.upsert({
     where: { code: 1700 },
     update: {},
     create: {
       code: 1700,
       name: 'Electrical',
+      projectId: 2,
     },
   })
 
-  const insulation = await prisma.tradeName.upsert({
+  const insulation = await prisma.trade.upsert({
     where: { code: 1800 },
     update: {},
     create: {
       code: 1800,
       name: 'Insulation',
+      projectId: 2,
     },
   })
 
-  const metal_ceiling_battens = await prisma.tradeName.upsert({
+  const metal_ceiling_battens = await prisma.trade.upsert({
     where: { code: 1900 },
     update: {},
     create: {
       code: 1900,
       name: 'Metal Ceiling Battens',
+      projectId: 2,
     },
   })
 
-  const plasterboard_linings = await prisma.tradeName.upsert({
+  const plasterboard_linings = await prisma.trade.upsert({
     where: { code: 2000 },
     update: {},
     create: {
       code: 2000,
       name: 'Plasterboard Linings',
+      projectId: 2,
     },
   })
 
-  const gib_stopping = await prisma.tradeName.upsert({
+  const gib_stopping = await prisma.trade.upsert({
     where: { code: 2100 },
     update: {},
     create: {
       code: 2100,
       name: 'GIB Stopping',
+      projectId: 2,
     },
   })
 
-  const painting = await prisma.tradeName.upsert({
+  const painting = await prisma.trade.upsert({
     where: { code: 2200 },
     update: {},
     create: {
       code: 2200,
       name: 'Painting',
+      projectId: 2,
     },
   })
 
-  const glazing = await prisma.tradeName.upsert({
+  const glazing = await prisma.trade.upsert({
     where: { code: 2300 },
     update: {},
     create: {
       code: 2300,
       name: 'Glazing',
+      projectId: 2,
     },
   })
 
-  const landscaping = await prisma.tradeName.upsert({
+  const landscaping = await prisma.trade.upsert({
     where: { code: 2400 },
     update: {},
     create: {
       code: 2400,
       name: 'Landscaping',
+      projectId: 2,
     },
   })
 
-  const plumbing_fittings_and_fixtures = await prisma.tradeName.upsert({
+  const plumbing_fittings_and_fixtures = await prisma.trade.upsert({
     where: { code: 2500 },
     update: {},
     create: {
       code: 2500,
       name: 'Plumbing Fittings & Fixtures',
+      projectId: 2,
     },
   })
 
-  const floor_coverings = await prisma.tradeName.upsert({
+  const floor_coverings = await prisma.trade.upsert({
     where: { code: 2600 },
     update: {},
     create: {
       code: 2600,
       name: 'Floor Coverings',
+      projectId: 2,
     },
   })
 
-  const kitchen_appliances = await prisma.tradeName.upsert({
+  const kitchen_appliances = await prisma.trade.upsert({
     where: { code: 2700 },
     update: {},
     create: {
       code: 2700,
       name: 'Kitchen Appliances',
+      projectId: 2,
     },
   })
 
-  const joinery = await prisma.tradeName.upsert({
+  const joinery = await prisma.trade.upsert({
     where: { code: 2800 },
     update: {},
     create: {
       code: 2800,
       name: 'Joinery',
+      projectId: 2,
     },
   })
 

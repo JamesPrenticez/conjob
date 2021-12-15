@@ -2,7 +2,7 @@
   "name": "conjob",
   "version": "0.0.1",
   "prisma": {
-    "seed": "node prisma/seeds/seed.user.js prisma/seeds/seed.projects.js"
+    "seed": "node prisma/seeds/seed.user.js"
   },
   "private": true,
   "scripts": {
