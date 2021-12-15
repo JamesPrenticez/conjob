@@ -10,7 +10,6 @@ function Project(props) {
   const router = useRouter()
   const {id} = router.query
   const data0 = defaultPreContract
-  {console.log(props)}
   return (
     <>
       {/* <div className="h-16 w-full bg-white inline-flex justify-center items-center">
@@ -43,6 +42,8 @@ function Project(props) {
 
         <p>
           {props.name}
+          {props.plans}
+          {props.specification}
         </p>
     </>
   )
@@ -50,15 +51,12 @@ function Project(props) {
 
 export default Project
 
-export async function getServerSideProps(){
+export async function getServerSideProps({params}){
   const project = await prisma.project.findUnique({
     where: {
-      id: 1,
-      // id: Number(params?.id) || -1,
+      id: Number(params?.id) || -1,
     },
   })
-  console.log("here")
-  console.log(project)
   return {
     props: project
   }

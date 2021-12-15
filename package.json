@@ -1,4 +1,9 @@
 {
+  "name": "conjob",
+  "version": "0.0.1",
+  "prisma": {
+    "seed": "node prisma/seeds/seed.user.js prisma/seeds/seed.projects.js"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,7 +14,8 @@
     "@prisma/client": "^3.6.0",
     "next": "latest",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "sqlite3": "^5.0.2"
   },
   "devDependencies": {
     "@types/node": "14.14.6",
