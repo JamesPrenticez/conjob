@@ -12,6 +12,7 @@
       ```npx prisma migrate dev --name YOURNAMEHERE```
     - SEEDS to populate our DB with data 
       ```npx prisma db seed```
+      or run each file by itself
       ```node prisma/seeds/seed.projects.js```
 
 ### Still To Do

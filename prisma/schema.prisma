@@ -34,7 +34,7 @@ model CostCode {
 
 model TradeName {
   id            Int       @default(autoincrement()) @id
-  code          Int
+  code          Int       @unique
   name          String
 }
 

@@ -41,9 +41,14 @@ function Project(props) {
         </div> */}
 
         <p>
-          {props.name}
-          {props.plans}
-          {props.specification}
+          {props.project.name}
+          {props.tradeNames.map((item, index) => (
+            <div key={index} className="flex w-full">
+              <p>{item.code} </p>
+              <p>{item.name}</p>
+            </div>
+          ))}
+
         </p>
     </>
   )
@@ -57,7 +62,9 @@ export async function getServerSideProps({params}){
       id: Number(params?.id) || -1,
     },
   })
+  const tradeNames = await prisma.tradeName.findMany()
+
   return {
-    props: project
+    props: {project, tradeNames}
   }
 }

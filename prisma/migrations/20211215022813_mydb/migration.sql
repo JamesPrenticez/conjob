@@ -43,3 +43,6 @@ CREATE TABLE "SubContractor" (
 
 -- CreateIndex
 CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "TradeName_code_key" ON "TradeName"("code");
