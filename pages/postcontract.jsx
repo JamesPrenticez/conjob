@@ -1,7 +1,7 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-import ProjectList from "../components/Tenders/ProjectList";
+import ProjectList from "../components/PreContract/ProjectList";
 
 
 function tenders() {

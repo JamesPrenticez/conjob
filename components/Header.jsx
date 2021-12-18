@@ -1,9 +1,6 @@
 const navigation = [
-  {name: "TENDERS", href: "/tenders"},
-  {name: "DELIVERY", href: "/delivery"},
-  {name: "TIME", href: "/time"},
-  {name: "MATERIALS", href: "/materials"},
-  {name: "FINACIALS", href: "/finacials"},
+  {name: "PRE CONTRACT", href: "/precontract"},
+  {name: "POST CONTRACT", href: "/postcontract"},
 ]
 import { useRouter } from 'next/router'
 
