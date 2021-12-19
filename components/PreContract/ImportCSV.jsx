@@ -19,13 +19,15 @@ function ImportCSV() {
     setCSVArray(newArray)
   }
 
+  console.log(CSVArray)
+
   const submit = () => {
     const file = CSVFile;
     const reader = new FileReader();
 
     reader.onload = function(e) {
         const text = e.target.result;
-        console.log(text);
+        //console.log(text);
         processCSV(text)
     }
 
@@ -56,22 +58,41 @@ function ImportCSV() {
       </form>
     </div>
 
-    <div className='h-full w-full bg-gray-50'>
+    <div className='h-screen w-screen bg-red-500'>
       {CSVArray.length > 0 ? 
             <>
                 <table>
-                    <thead>
-                        <th>Name</th>
-                        <th>Age</th>
-                        <th>Rank</th>
-                    </thead>
                     <tbody>
-                        {
-                            CSVArray.map((item, i) => (
-                                <tr key={i}>
-                                    <td>{item.name}</td>
-                                    <td>{item.age}</td>
-                                    <td>{item.rank}</td>
+                      <tr>
+                        <th>Code</th>
+                        <th>Trade</th>
+                        <th>Estimate</th>
+                        <th>Contract</th>
+                        <th>Profit/Loss</th>
+                        <th>Tenders</th>
+                        <th>Tender Status</th>
+                        <th>Tender Date</th>
+                        <th>SubContractor</th>
+                        <th>Acceptance Status</th>
+                        <th>Acceptance</th>
+                        <th>Quote</th>
+                      </tr>
+                    </tbody>
+                    <tbody>
+                        {CSVArray.map((item, index) => (
+                                <tr key={index}>
+                                    <td>{item.Code}</td>
+                                    <td>{item.Trade}</td>
+                                    <td>{item.Estimate}</td>
+                                    <td>{item.Contract}</td>
+                                    <td>{item.ProfitLoss}</td>
+                                    <td>{item.Tenders}</td>
+                                    <td>{item.Status}</td>
+                                    <td>{item.TenderDate}</td>
+                                    <td>{item.SubContractor}</td>
+                                    <td>{item.Status}</td>
+                                    <td>{item.Acceptance}</td>
+                                    <td>{item.Quote}</td>
                                 </tr>
                             ))
                         }
