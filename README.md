@@ -22,4 +22,5 @@
 
 ### Helpful Links
 - Logging and object [https://levelup.gitconnected.com/5-ways-to-log-an-object-to-the-console-in-javascript-7b995c56af5a]
-
+- Today we learnt that you cannot use 'getServerSideProps in non-page compentents. You need to pass props
+- We also realise tailwind height and widths are multiples of 8 16 32 64

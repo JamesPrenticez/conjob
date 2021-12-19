@@ -1,9 +1,8 @@
-import {useProjects} from "../../data"
 import {useRouter} from "next/router"
 
-function ProjectList() {
+function ProjectList({projects}) {
   const router = useRouter()
-  const projects = useProjects
+
   return (
   <div className="w-full flex justify-center h-screenNav">
 
@@ -36,3 +35,5 @@ function ProjectList() {
 }
 
 export default ProjectList
+
+
