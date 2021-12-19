@@ -1,24 +1,18 @@
 import prisma from '../../lib/prisma';
-import { useRouter } from "next/router"
 import { useState } from 'react';
+import { useRouter } from 'next/router'
 import ImportCSV from '../../components/PreContract/importCSV';
-
-// async function getProjects(){
-//   const res = await fetch(`http://localhost:3000/api/posts/`, {method: 'GET'})
-//   const data = await res.json()
-//   //setPosts(data)
-//   return data
-// }
+import PreContract from '../../components/PreContract/PreContract';
+import { exportToCSV } from '../../components/PreContract/exportToCSV.helper'
 
 function Project(props) {
-  const [toggleImportCSV, setToggleImportCSV] = useState(false)
   const router = useRouter()
-  const {id} = router.query
+  const [toggleImportCSV, setToggleImportCSV] = useState(false)
 
   return (
     <>
-      {/* PreContract Nav*/}
-      <div className="h-16 w-full bg-white inline-flex justify-center items-center">
+      {/* Sudo Nav*/}
+      <div className="h-16 w-full bg-white inline-flex justify-center items-center drop-shadow-sm">
         <div className="h-full w-5/6 inline-flex items-center space-x-4">
           <button
             onClick={() => router.push("/precontract")}
@@ -38,7 +32,7 @@ function Project(props) {
           <button
             className="hover:cursor-pointer hover:text-blue-600 text-sm p-2 ml-auto"
             type="button"
-            onClick={() => tableToCSV(props.project[id]?.name)}
+            onClick={() => exportToCSV(props.project.name)}
           >
             Download CSV
           </button>
@@ -49,53 +43,10 @@ function Project(props) {
       {/*console.log(props)*/}
 
       {toggleImportCSV ? (<ImportCSV/>) : ("")}
-      <div className='w-full flex justify-center bg-gray-50 text-black  h-screenNav'>
-        <div className='w-5/6 bg-white p-4 my-8 border-2 border-gray-200'>
-            <img
-              className="col-start-10 lg:col-start-12 col-span-3 lg:col-span-1 row-span-3 bg-gray-200 border h-32 w-32 border-blue-900 rounded-sm"
-              src={props.project.img}
-            />
-            <p>{props.project.id}</p>
-            <p>{props.project.jobCode}</p>
-            <p>{props.project.name.toUpperCase()}</p>
-            <p>{props.project.location}</p>
-            <p>{props.project.plansURL}</p>
-            <p>{props.project.specificationURL}</p>
 
+      <PreContract props={props}/>
 
-             {props.trade.map((item, index) => (
-              <div key={index} className="flex space-x-4 w-full">
-                <p>{item.costCode}</p>
-                <p>{item.name}</p>
-                <p>{item.estimateValue}</p>
-                <p>{item.contractValue}</p>
-                <p>{item.tenders}</p>
-                <p>{item.assigned}</p>
-                <p>{item.subArgeementStatus}</p>
-                <p>{item.subArgeementURL}</p>
-              </div>
-            ))}
-
-        </div>
-      </div>
-
-
-      {/* <div className="my-4 flex justify-center">
-          <PreContract data={data}/>
-        </div> */}
-
-      {/* <p>
-          {props.project.name}
-          {props.trade.map((item, index) => (
-            <div key={index} className="flex w-full">
-              <p>{item.code} </p>
-              <p>{item.name}</p>
-              <p>{item.projectId}</p>
-            </div>
-          ))}
-
-        </p> */}
-    </>
+     </>
   );
 }
 

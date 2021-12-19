@@ -1,6 +1,6 @@
 // From https://www.geeksforgeeks.org/how-to-export-html-table-to-csv-using-javascript/
 
-export function tableToCSV(project_name) {
+export function exportToCSV(project_name) {
   let projectName = project_name.toLowerCase()
   // letiable to store the final csv data
   let csv_data = [];
@@ -45,7 +45,7 @@ export function downloadCSVFile(csv_data, projectName) {
   let temp_link = document.createElement('a');
 
   // Download csv file
-  temp_link.download = `${projectName}_preContract.csv`;
+  temp_link.download = `${Date.now()}_${projectName}`;
   let url = window.URL.createObjectURL(CSVFile);
   temp_link.href = url;
 
