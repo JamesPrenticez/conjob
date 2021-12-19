@@ -1,5 +1,7 @@
 import prisma from '../../lib/prisma';
 import { useRouter } from "next/router"
+import { useState } from 'react';
+import ImportCSV from '../../components/PreContract/importCSV';
 
 // async function getProjects(){
 //   const res = await fetch(`http://localhost:3000/api/posts/`, {method: 'GET'})
@@ -9,6 +11,7 @@ import { useRouter } from "next/router"
 // }
 
 function Project(props) {
+  const [toggleImportCSV, setToggleImportCSV] = useState(false)
   const router = useRouter()
   const {id} = router.query
 
@@ -19,50 +22,63 @@ function Project(props) {
         <div className="h-full w-5/6 inline-flex items-center space-x-4">
           <button
             onClick={() => router.push("/precontract")}
-            className="m-4 w-20 h-10 text-xl hover:cursor-pointer hover:bg-blue-700 hover:border-blue-700 hover:text-white border-2 border-blue-700 rounded-lg"
+            className="m-4 w-20 h-10 text-xl hover:cursor-pointer bg-blue-700 hover:bg-blue-600 hover:border-blue-600 text-white border-2 border-blue-700 rounded-lg mr-auto"
           >
             BACK
           </button>
 
           <button
-            className="hover:cursor-pointer hover:bg-blue-700 hover:border-blue-700 hover:text-white text-sm p-2 border-2 border-blue-700 rounded-lg"
+            className="hover:cursor-pointer hover:text-blue-600 text-sm p-2 ml-auto"
+            type="button"
+            onClick={() => setToggleImportCSV(!toggleImportCSV)}
+          >
+            Import CSV
+          </button>
+
+          <button
+            className="hover:cursor-pointer hover:text-blue-600 text-sm p-2 ml-auto"
             type="button"
             onClick={() => tableToCSV(props.project[id]?.name)}
           >
             Download CSV
           </button>
+
         </div>
       </div>
 
       {/*console.log(props)*/}
 
-      <div className="bg-blue-500 text-white p-4">
-        <img
-          className="col-start-10 lg:col-start-12 col-span-3 lg:col-span-1 row-span-3 bg-gray-300 border h-32 w-32 border-blue-900 rounded-sm"
-          src={props.project.img}
-        />
-        <p>{props.project.id}</p>
-        <p>{props.project.jobCode}</p>
-        <p>{props.project.name.toUpperCase()}</p>
-        <p>{props.project.location}</p>
-        <p>{props.project.plansURL}</p>
-        <p>{props.project.specificationURL}</p>
+      {toggleImportCSV ? (<ImportCSV/>) : ("")}
+      <div className='w-full flex justify-center bg-gray-50 text-black  h-screenNav'>
+        <div className='w-5/6 bg-white p-4 my-8 border-2 border-gray-200'>
+            <img
+              className="col-start-10 lg:col-start-12 col-span-3 lg:col-span-1 row-span-3 bg-gray-200 border h-32 w-32 border-blue-900 rounded-sm"
+              src={props.project.img}
+            />
+            <p>{props.project.id}</p>
+            <p>{props.project.jobCode}</p>
+            <p>{props.project.name.toUpperCase()}</p>
+            <p>{props.project.location}</p>
+            <p>{props.project.plansURL}</p>
+            <p>{props.project.specificationURL}</p>
+
+
+             {props.trade.map((item, index) => (
+              <div key={index} className="flex space-x-4 w-full">
+                <p>{item.costCode}</p>
+                <p>{item.name}</p>
+                <p>{item.estimateValue}</p>
+                <p>{item.contractValue}</p>
+                <p>{item.tenders}</p>
+                <p>{item.assigned}</p>
+                <p>{item.subArgeementStatus}</p>
+                <p>{item.subArgeementURL}</p>
+              </div>
+            ))}
+
+        </div>
       </div>
 
-      <div className="bg-gray-300 p-4">
-        {props.trade.map((item, index) => (
-          <div key={index} className="flex space-x-4 w-full">
-            <p>{item.costCode}</p>
-            <p>{item.name}</p>
-            <p>{item.estimateValue}</p>
-            <p>{item.contractValue}</p>
-            <p>{item.tenders}</p>
-            <p>{item.assigned}</p>
-            <p>{item.subArgeementStatus}</p>
-            <p>{item.subArgeementURL}</p>
-          </div>
-        ))}
-      </div>
 
       {/* <div className="my-4 flex justify-center">
           <PreContract data={data}/>

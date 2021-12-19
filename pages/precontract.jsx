@@ -1,3 +1,5 @@
+import prisma from '../lib/prisma';
+
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
@@ -17,7 +19,6 @@ function tenders({projects}) {
 export default tenders
 
 export const getServerSideProps = async ctx  => {
-  const res = await fetch('http://localhost:3000/api/projects/')
-  const projects = await res.json() 
+  const projects = await prisma.project.findMany()//where company id
   return {props: {projects}}
 }

@@ -7,11 +7,11 @@ import { useRouter } from 'next/router'
 function Header() {
   const router = useRouter()
   return (
-    <>
-      <header className="bg-white h-16 drop-shadow-md flex items-center p-4 w-full">
+    <div className='w-full bg-white flex justify-center'>
+      <header className="w-5/6 h-16 drop-shadow-md flex items-center p-4">
         <h1 
           onClick={() => router.push('/')}
-          className="text-3xl font-racing  cursor-pointer hover:text-blue-900"
+          className="text-3xl font-racing  cursor-pointer hover:text-blue-600"
         >
           CONJOB
         </h1>
@@ -21,7 +21,7 @@ function Header() {
             <p
               key={index}
               onClick={() => router.push(item.href)}
-              className="hidden md:inline-flex font-bold hover:text-blue-900 hover:cursor-pointer"
+              className="hidden md:inline-flex font-bold hover:text-blue-600 hover:cursor-pointer"
             >
               {item.name}
             </p>
@@ -40,7 +40,7 @@ function Header() {
       
       </header>
 
-    </>
+    </div>
   )
 }
 
